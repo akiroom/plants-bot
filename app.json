@@ -1,0 +1,7 @@
+{
+  "name": "Plants bot",
+  "description": "Simple slack bot",
+  "repository": "https://github.com/heroku/node-js-getting-started",
+  "keywords": ["node", "slack"],
+  "image": "heroku/nodejs"
+}
