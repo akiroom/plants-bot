@@ -43,7 +43,23 @@ slack.on('message', function(message) {
 
     // メッセージ本文
     var text = message.text;
-    var reg = new RegExp('^.*<@' + slack.self.id + '>.*$');
+    var reg;
+    
+    reg = new RegExp('^.*<@' + slack.self.id + '> ping.*$');
+    if (reg.test(text)) {
+        channel.send('pong');
+        return;
+    }
+    
+    reg = new RegExp('^.*<@' + slack.self.id + '>: ping.*$');
+    if (reg.test(text)) {
+        channel.send('pong kang');
+        var ponkans = ['https://gyazo.com/8c6d4a2af5ac920704107a76f833cc05', 'https://gyazo.com/0f5ae30db5e3c9308bd3f2bc6d61ddbc', 'https://gyazo.com/95c549a469c58a9c2d68ad1d00290484'];
+        channel.send(ponkans[Math.floor(Math.random() * ponkans.length)]);
+        return;
+    }
+    
+    reg = new RegExp('^.*<@' + slack.self.id + '>.*$');
     if (reg.test(text)) {
         channel.send( "<@" + user.id + "> 呼んだ？" );
         setTimeout(function() {
@@ -56,6 +72,7 @@ slack.on('message', function(message) {
             ];
             channel.send(meigen[Math.floor(Math.random() * meigen.length)]);
         }, 3000);
+        return;
     }
 });
 
