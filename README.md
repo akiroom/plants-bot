@@ -22,3 +22,5 @@ $ heroku create
 $ git push heroku master
 $ heroku open
 ```
+
+Herokuの環境変数のSLACK_TOKENを設定してください。
