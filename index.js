@@ -1,5 +1,6 @@
 var Slack = require('slack-client');
 var schedule = require("node-schedule");
+var http = require("http");
 
 // Slackで呼びかける相手
 var gardener = '@akiroom';
@@ -65,3 +66,11 @@ slack.on('error', function(error) {
 
 // ログイン処理
 slack.login();
+
+
+// てきとうに常駐
+http.createServer(function(request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hello World");
+  response.end();
+}).listen(8888);
