@@ -84,7 +84,6 @@ slack.on('error', function(error) {
 // ログイン処理
 slack.login();
 
-
 // てきとうに常駐
 http.createServer(function(request, response) {
   response.writeHead(200, {"Content-Type": "text/plain"});
